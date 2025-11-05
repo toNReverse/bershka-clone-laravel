@@ -1,61 +1,121 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Bershka Clone – Laravel Version
 
-## About Laravel
+*A full-featured e-commerce web application inspired by the Bershka website, built with Laravel, Blade, HTML, CSS, JavaScript and MySQL.*
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project is a complete e-commerce web application inspired by the Bershka website.  
+It is developed using **Laravel**, **Blade templates**, **HTML**, **CSS**, and **JavaScript**, following MVC architecture and using modern tooling for asset compilation and routing.  
+Originally created as part of a university exam, it has been refactored and enhanced for use as a professional portfolio project.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Overview
 
-## Learning Laravel
+The application replicates a modern fashion e-commerce experience with real-time product search, user authentication, cart and wishlist management, and checkout via Stripe.  
+It uses Laravel’s MVC structure, Blade templating engine, built-in routing, migration system, and leverages external APIs for translation, currency conversion, and product data retrieval.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Frontend
+- Fully responsive layout built with HTML5 and CSS3, using Laravel’s frontend tooling.  
+- Live product search integrated via JavaScript and external APIs.  
+- Wishlist and cart management through Laravel controllers, API endpoints and AJAX/Fetch.  
+- Modal-based cart with dynamic updates.  
+- Login, registration, password reset via Laravel Auth.  
+- Layouts and components via Blade templates for reuse and clean UI.
 
-## Laravel Sponsors
+### Backend
+- Laravel controllers and routes to manage:
+  - Wishlist and cart operations.  
+  - Product searches via external API.  
+  - Currency conversion and language translation.  
+  - Checkout session creation with Stripe.  
+- Eloquent ORM models and migrations for users, products, wishlist, cart, orders.  
+- Artisan commands and migration system for infrastructure management.  
+- Clear separation: `app/Http/Controllers`, `app/Models`, `resources/views`, `routes/web.php`.
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🧱 Laravel Structure Overview
 
-### Premium Partners
+The project follows Laravel’s standard structure:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
+```bash
+bershka-laravel/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/       # Main app logic (CartController, WishlistController, etc.)
+│   │   └── Middleware/
+│   ├── Models/                # Eloquent models (User, Product, Cart, Wishlist…)
+│
+├── resources/
+│   ├── views/                 # Blade templates
+│   │   ├── layouts/           # Main layout files (app.blade.php)
+│   │   ├── auth/              # Login, Register, Password Reset
+│   │   ├── pages/             # Home, Search, Checkout…
+│   │   └── components/        # Reusable Blade components
+│   ├── js/                    # JavaScript modules (cart.js, search.js, etc.)
+│   └── css/                   # Stylesheets
+│
+├── routes/
+│   ├── web.php                # Web routes (pages)
+│   └── api.php                # API endpoints for fetch calls
+│
+├── database/
+│   ├── migrations/            # Table creation scripts
+│   └── seeders/               # Sample data
+│
+├── public/
+│   ├── images/                # Product/media assets
+│   ├── css/                   # Compiled styles
+│   ├── js/                    # Compiled scripts
+│   └── index.php
+│
+├── .env                       # Environment configuration (DB, API keys, etc.)
+└── composer.json
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Configuration
 
-## Code of Conduct
+Before running the project, make sure to properly configure the API keys and parameters required for external features to work.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### API Keys
 
-## Security Vulnerabilities
+The project uses several external APIs for product search, automatic translation, currency conversion, and payment processing.  
+All keys must be manually set within the corresponding PHP or JavaScript files, as indicated in the code.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 1. SerpAPI
+- Used for product search functionality.  
+- Requires a variable named SERPAPI_KEY containing your private API key.  
+- You can obtain it by registering at [https://serpapi.com](https://serpapi.com).
 
+#### 2. MyMemory Translation API
+- Used to dynamically translate product names and descriptions.  
+- Requires a variable MYMEMORY_KEY (optional, but recommended to avoid request limits).  
+- Register at [https://mymemory.translated.net/doc/spec.php](https://mymemory.translated.net/doc/spec.php) to obtain your key.
+
+#### 3. ExchangeRate API
+- Used to convert product prices to the user’s selected currency.  
+- Set the variable EXCHANGERATE_KEY with your personal API key.  
+- You can obtain it from [https://www.exchangerate-api.com](https://www.exchangerate-api.com).
+
+#### 4. Stripe
+- Used to handle payment processing (in test mode).  
+- Requires two keys:
+  - STRIPE_SECRET_KEY
+  - STRIPE_PUBLIC_KEY  
+- Both are available in your Stripe dashboard at [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys).
+
+---
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is released under the **MIT License**.  
+You are free to use, modify, and distribute the code for personal or commercial purposes, provided that proper credit is given to the original author.
+
+> © 2025 Marco Sapienza  
+> This project was originally developed as part of an academic coursework and later refined for portfolio presentation purposes.
+
+For full license details, please refer to the [LICENSE](LICENSE) file included in this repository.
