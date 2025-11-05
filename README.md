@@ -8,6 +8,8 @@ This project is a complete e-commerce web application inspired by the Bershka we
 It is developed using **Laravel**, **Blade templates**, **HTML**, **CSS**, and **JavaScript**, following MVC architecture and using modern tooling for asset compilation and routing.  
 Originally created as part of a university exam, it has been refactored and enhanced for use as a professional portfolio project.
 
+![Bershka Clone Screenshot](https://i.imgur.com/TWeTqOQ.jpeg)
+
 ---
 
 ## Overview
